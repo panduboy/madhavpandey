@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Meta Tags -->
+    <title>Madhav Prasad Pandey | Video Editor & Creative Designer</title>
+    <meta name="description" content="Portfolio of Madhav Prasad Pandey - Specialist in Cinematic Video Editing, Graphic Design, and Content Creation.">
+    <meta property="og:title" content="Madhav Prasad Pandey | Creative Portfolio">
+    <meta property="og:description" content="Turning visions into high-impact digital content.">
+    <meta property="og:image" content="https://i.ibb.co/6cMYRp62/20251017-221042.png">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg: #050505;
+            --card: #0e0e0e;
+            --primary: #ff2d55;
+            --primary-glow: rgba(255, 45, 85, 0.4);
+            --white: #ffffff;
+            --gray: #999999;
+            --nav-bg: rgba(5, 5, 5, 0.9);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--white); overflow-x: hidden; line-height: 1.6; }
+
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+
+        /* --- Header --- */
+        header {
+            padding: 20px 6%;
+            display: flex; justify-content: space-between; align-items: center;
+            position: fixed; width: 100%; top: 0;
+            background: transparent; transition: 0.4s ease;
+            z-index: 1000;
+        }
+        header.scrolled { background: var(--nav-bg); backdrop-filter: blur(15px); padding: 15px 6%; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-size: 1.6rem; font-weight: 700; letter-spacing: -1px; }
+        .logo span { color: var(--primary); }
+        .menu-btn { font-size: 1.6rem; cursor: pointer; color: var(--white); transition: 0.3s; }
+        .menu-btn:hover { color: var(--primary); }
+
+        /* --- Side Menu --- */
+        .side-nav {
+            position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+            background: rgba(0, 0, 0, 0.98); z-index: 2000;
+            transition: 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+            display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px;
+        }
+        .side-nav.active { right: 0; }
+        .side-nav a { color: white; text-decoration: none; font-size: 2.2rem; font-weight: 700; transition: 0.3s; }
+        .side-nav a:hover { color: var(--primary); }
+        .close-nav { position: absolute; top: 30px; right: 6%; font-size: 2.5rem; cursor: pointer; }
+
+        /* --- Hero Section --- */
+        .hero { 
+            min-height: 100vh; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            text-align: center; padding: 0 10%;
+            background: radial-gradient(circle at center, #1a050a 0%, #050505 70%);
+        }
+        .hero h1 { font-size: 1.1rem; font-weight: 400; color: var(--primary); letter-spacing: 5px; text-transform: uppercase; margin-bottom: 15px; }
+        .hero .name { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 800; margin-bottom: 15px; line-height: 1; text-shadow: 0 0 20px rgba(255,45,85,0.2); }
+        
+        .typing-container { font-size: clamp(1.2rem, 4vw, 2.2rem); font-weight: 600; color: var(--white); min-height: 45px; opacity: 0.9; }
+        .cursor { display: inline-block; width: 3px; background-color: var(--primary); margin-left: 5px; animation: blink 0.7s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        .btn-main { margin-top: 40px; padding: 15px 35px; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s; box-shadow: 0 5px 15px var(--primary-glow); }
+        .btn-main:hover { transform: translateY(-5px); box-shadow: 0 10px 25px var(--primary-glow); background: #ff4d70; }
+
+        /* --- Sections --- */
+        section { padding: 120px 8% 80px; opacity: 0; transform: translateY(40px); transition: 1s ease-out; }
+        section.visible { opacity: 1; transform: translateY(0); }
+        .section-title { font-size: 2.5rem; margin-bottom: 60px; text-align: center; width: 100%; }
+        .section-title span { color: var(--primary); }
+
+        /* --- About --- */
+        .about-container { display: flex; flex-direction: column; align-items: center; gap: 60px; max-width: 1100px; margin: 0 auto; }
+        .about-img-box { position: relative; width: 280px; height: 280px; }
+        .about-img-box img { width: 100%; height: 100%; border-radius: 30px; object-fit: cover; border: 2px solid var(--primary); position: relative; z-index: 2; }
+        .about-img-box::after { content: ''; position: absolute; inset: 15px -15px -15px 15px; border: 2px solid var(--primary-glow); border-radius: 30px; z-index: 1; }
+        .about-text { text-align: center; }
+        .about-text p { font-size: 1.1rem; color: var(--gray); max-width: 800px; margin: 0 auto 30px; }
+        
+        /* Tool Icons */
+        .tools-box { display: flex; justify-content: center; gap: 25px; font-size: 2rem; color: var(--white); margin-top: 30px; }
+        .tools-box i:hover { color: var(--primary); transform: scale(1.2); transition: 0.3s; }
+
+        /* --- Services --- */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card {
+            background: var(--card); padding: 50px 35px; border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: 0.4s; text-align: center;
+        }
+        .service-card:hover { border-color: var(--primary); transform: translateY(-10px); background: #121212; }
+        .service-card i { font-size: 3.5rem; color: var(--primary); margin-bottom: 25px; }
+        .service-card h3 { margin-bottom: 15px; font-size: 1.5rem; letter-spacing: 1px; }
+        .service-card p { color: var(--gray); font-size: 0.95rem; }
+
+        /* --- Portfolio --- */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
+        .p-item { 
+            background: var(--card); border-radius: 20px; overflow: hidden; 
+            text-decoration: none; color: white; transition: 0.4s;
+            border: 1px solid rgba(255,255,255,0.03); display: block;
+        }
+        .p-item:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .p-media { height: 230px; background: #000; position: relative; overflow: hidden; }
+        .p-media img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.6s; }
+        .p-item:hover .p-media img { opacity: 1; transform: scale(1.05); }
+        .play-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; color: var(--primary); opacity: 0.8; }
+        .p-desc { padding: 25px; }
+        .p-desc span { color: var(--primary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+        .p-desc h3 { margin-top: 8px; font-size: 1.3rem; }
+
+        /* --- Contact --- */
+        .contact-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 60px; align-items: start; }
+        .contact-info h2 { font-size: 2rem; margin-bottom: 20px; }
+        .contact-item { display: flex; align-items: center; gap: 20px; margin-bottom: 35px; }
+        .contact-item i { width: 60px; height: 60px; background: #151515; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.4rem; }
+        
+        .form-box { background: var(--card); padding: 40px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.03); }
+        .form-box input, .form-box textarea { width: 100%; padding: 16px; background: #050505; border: 1px solid #222; border-radius: 12px; color: white; margin-bottom: 20px; outline: none; }
+        .form-box input:focus, .form-box textarea:focus { border-color: var(--primary); }
+        .submit-btn { width: 100%; padding: 18px; background: var(--primary); border: none; color: white; font-weight: 700; border-radius: 12px; cursor: pointer; transition: 0.3s; font-size: 1rem; }
+        .submit-btn:hover { background: #e61e44; box-shadow: 0 0 20px var(--primary-glow); }
+
+        /* --- Footer --- */
+        footer { padding: 80px 0 40px; border-top: 1px solid rgba(255,255,255,0.03); text-align: center; }
+        .socials { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; }
+        .socials a { font-size: 1.8rem; color: var(--white); transition: 0.3s; }
+        .socials a:hover { color: var(--primary); transform: translateY(-5px); }
+        .copyright { color: #555; font-size: 0.9rem; letter-spacing: 1px; }
+
+        /* --- Back to Top --- */
+        #backToTop { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: 0.3s; z-index: 999; }
+        #backToTop.show { opacity: 1; }
+
+        @media (min-width: 992px) {
+            .about-container { flex-direction: row; text-align: left; }
+            .about-text { text-align: left; }
+            .about-text p { margin: 0 0 30px 0; }
+            .tools-box { justify-content: flex-start; }
+            .section-title { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="logo">Madhav<span>.</span></div>
+        <div class="menu-btn" id="openNav"><i class="fas fa-bars-staggered"></i></div>
+    </header>
+
+    <div class="side-nav" id="sideNav">
+        <div class="close-nav" id="closeNav"><i class="fas fa-times"></i></div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero visible" id="home">
+        <h1> Creative Minded </h1>
+        <div class="name">Madhav Pandey</div>
+        <div class="typing-container">
+            I'm a <span id="typewriter"></span><span class="cursor">|</span>
+        </div>
+        <a href="#portfolio" class="btn-main">View My Work</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About <span>Me</span></h2>
+        <div class="about-container">
+            <div class="about-img-box">
+                <img src="https://i.ibb.co/6cMYRp62/20251017-221042.png" alt="Madhav Pandey">
+            </div>
+            <div class="about-text">
+                <p>
+                    I am <b>Madhav Prasad Pandey</b>, a creative professional dedicated to crafting visually stunning experiences. With a deep focus on storytelling, I help brands and creators bridge the gap between imagination and reality.
+                    <br><br>
+                    Based in Nepal, working globally. I don't just edit videos; I create emotions that stay with the audience.
+                </p>
+                <div class="tools-box">
+                    <i class="fab fa-adobe" title="Adobe Creative Cloud"></i>
+                    <i class="fas fa-video" title="Premiere Pro"></i>
+                    <i class="fas fa-wand-magic-sparkles" title="After Effects"></i>
+                    <i class="fas fa-palette" title="Photoshop"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title">My <span>Expertise</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-film"></i>
+                <h3>Video Editing</h3>
+                <p>Advanced cinematic editing, pacing, and color grading for high-end video content.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-shapes"></i>
+                <h3>Graphic Design</h3>
+                <p>Thumbnails, social media assets, and brand visuals that stand out in the feed.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Content Strategy</h3>
+                <p>Consulting on viral hooks and structure to ensure your content actually gets views.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2 class="section-title">Featured <span>Projects</span></h2>
+        <div class="portfolio-grid">
+            <a href="https://youtu.be/hJdfKeDsmAg" target="_blank" class="p-item">
+                <div class="p-media">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                    <img src="https://img.youtube.com/vi/hJdfKeDsmAg/maxresdefault.jpg" alt="Video Project">
+                </div>
+                <div class="p-desc"><span>Editing</span><h3>Cinematic Masterpiece</h3></div>
+            </a>
+            
+            <a href="#" class="p-item">
+                <div class="p-media">
+                    <img src="https://i.ibb.co/yBpYpxFG/20260420-160302.jpg" alt="Graphic Design">
+                </div>
+                <div class="p-desc"><span>Design</span><h3>Brand Identity Pack</h3></div>
+            </a>
+
+            <a href="https://youtu.be/tT4i4bGSjWs?si=fwj0DvfMT6b9-CO5" class="p-item">
+                <div class="p-media">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                    <img src="https://i.ibb.co/TqkfGc97/2026-04-20-21-52-20.jpg" alt="Project">
+                </div>
+                <div class="p-desc"><span>Editing</span><h3>Interview </h3></div>
+            </a>
+            <a href="https://youtu.be/1srQ-AfEIJo" class="p-item">
+                <div class="p-media">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                    <img src="https://i.ibb.co/20w41ZyJ/2026-04-20-21-54-19.jpg" alt="Project">
+                </div>
+                <div class="p-desc"><span>Editing</span><h3>Cinematic Movie </h3></div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Let's <span>Connect</span></h2>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h2>Got a project in mind?</h2>
+                <p style="color: var(--gray); margin-bottom: 40px;">Ready to elevate your digital presence? Send a message and let's discuss your vision.</p>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div><p>Email</p><strong>ratofame@gmail.com</strong></div>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <div><p>WhatsApp</p><strong>+977 9748224577</strong></div>
+                </div>
+            </div>
+            
+            <form action="https://formspree.io/f/YOUR_ID" method="POST" class="form-box">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" rows="5" placeholder="Tell me about your project" required></textarea>
+                <button type="submit" class="submit-btn">Launch Project <i class="fas fa-paper-plane" style="margin-left: 10px;"></i></button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="socials">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
+        <p class="copyright">&copy; 2026 Madhav Prasad Pandey. All Rights Reserved.</p>
+    </footer>
+
+    <div id="backToTop"><i class="fas fa-chevron-up"></i></div>
+
+    <script>
+        // Header & Back to Top logic
+        const header = document.getElementById('header');
+        const btt = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+                btt.classList.add('show');
+            } else {
+                header.classList.remove('scrolled');
+                btt.classList.remove('show');
+            }
+        });
+
+        btt.onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
+
+        // Navigation
+        const sideNav = document.getElementById('sideNav');
+        document.getElementById('openNav').onclick = () => sideNav.classList.add('active');
+        document.getElementById('closeNav').onclick = () => sideNav.classList.remove('active');
+        document.querySelectorAll('.side-nav a').forEach(l => l.onclick = () => sideNav.classList.remove('active'));
+
+        // Scroll Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { 
+                if (entry.isIntersecting) entry.target.classList.add('visible'); 
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('section').forEach(el => observer.observe(el));
+
+        // Typewriter Effect
+        const textElement = document.getElementById('typewriter');
+        const phrases = ["Video Editor", "Content Creator", "Graphic Designer", "Visual Storyteller"];
+        let phraseIdx = 0, charIdx = 0, isDeleting = false;
+
+        function type() {
+            const current = phrases[phraseIdx];
+            textElement.textContent = isDeleting ? current.substring(0, charIdx--) : current.substring(0, charIdx++);
+            
+            let speed = isDeleting ? 60 : 120;
+            if (!isDeleting && charIdx === current.length + 1) { isDeleting = true; speed = 2000; }
+            else if (isDeleting && charIdx === 0) { isDeleting = false; phraseIdx = (phraseIdx + 1) % phrases.length; speed = 500; }
+            setTimeout(type, speed);
+        }
+        type();
+    </script>
+</body>
+</html>
